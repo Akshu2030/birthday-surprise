@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +19,7 @@
 
   <main class="container">
 
-    <!-- PAGE 1 -->
+    <!-- PAGE 1: NO PHOTO -->
     <section class="page active" id="page1">
       <div class="emoji">💜</div>
       <h1>Are you my best friend?</h1>
@@ -33,7 +33,7 @@
       <p class="hint">Try clicking NO... hehe! 🤭</p>
     </section>
 
-    <!-- PAGE 2 -->
+    <!-- PAGE 2: TEDDY, NO PHOTO -->
     <section class="page" id="page2">
       <h1>Yayyy! My Bestie! 💕</h1>
       <p>You are my favourite person! 🥹</p>
@@ -48,10 +48,10 @@
       <button class="btn" onclick="goToPage(3)">Next Surprise ➜</button>
     </section>
 
-    <!-- PAGE 3 -->
+    <!-- PAGE 3: FIVE PHOTOS -->
     <section class="page" id="page3">
-      <h1>Five Little Secrets 💜</h1>
-      <p>Click each heart to unlock a special message!</p>
+      <h1>Five Little Memories 💜</h1>
+      <p>Open each heart to see our memories!</p>
 
       <div class="hearts">
         <button class="heart" onclick="openHeart(0)">💜</button>
@@ -61,15 +61,19 @@
         <button class="heart" onclick="openHeart(4)">💜</button>
       </div>
 
-      <div id="heartMessage" class="heart-message">Choose a heart! 💌</div>
+      <div id="heartMessage" class="heart-message">
+        Choose a heart! 💌
+      </div>
+
       <p id="heartCount">0 / 5 hearts opened</p>
 
-      <button class="btn" id="heartNext" onclick="goToPage(4)" disabled>
+      <button class="btn" id="heartNext"
+        onclick="goToPage(4)" disabled>
         Next ➜
       </button>
     </section>
 
-    <!-- PAGE 4 -->
+    <!-- PAGE 4: CAKE AND BIRTHDAY WISH, NO PHOTO -->
     <section class="page" id="page4">
       <h1>Make a Wish! 🎂</h1>
       <p>Close your eyes and wish for something special! ✨</p>
@@ -89,14 +93,16 @@
         <h1>HAPPY BIRTHDAY!</h1>
         <h2>GALDY 💜</h2>
         <p>May your wishes come true! 🥹</p>
-        <button class="btn" onclick="goToPage(5)">One Last Surprise 💌</button>
+        <button class="btn" onclick="goToPage(5)">
+          One Last Surprise 💌
+        </button>
       </div>
     </section>
 
-    <!-- PAGE 5 -->
+    <!-- PAGE 5: VIDEO, NO PHOTO -->
     <section class="page" id="page5">
       <div class="emoji">💜🧸💜</div>
-      <h1>Dear Galdy!</h1>
+      <h1>Dear Galdy! 💕</h1>
 
       <p class="final-message">
         You deserve all the happiness in the world.
@@ -105,8 +111,19 @@
       </p>
 
       <h2>Happy Birthday, Bestie! 🎂</h2>
-      <div class="emoji">🫂💗🎉</div>
-      <button class="btn" onclick="goToPage(1)">Replay Surprise ↻</button>
+
+      <div class="video-container">
+        <video controls playsinline preload="metadata">
+          <source src="birthday-video.mp4" type="video/mp4">
+          Your browser does not support this video.
+        </video>
+      </div>
+
+      <p>Our memories will always be special! 💜</p>
+
+      <button class="btn" onclick="goToPage(1)">
+        Replay Surprise ↻
+      </button>
     </section>
 
   </main>
@@ -114,3 +131,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+```
