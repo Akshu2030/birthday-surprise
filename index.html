@@ -1,13 +1,14 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birthday Surprise 💜</title>
+  <title>Birthday Surprise for Galdy 💜</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <div class="sky">
     <span class="cloud cloud1">☁️</span>
     <span class="cloud cloud2">☁️</span>
@@ -19,39 +20,43 @@
 
   <main class="container">
 
-    <!-- PAGE 1: NO PHOTO -->
+    <!-- PAGE 1: BEST FRIEND QUESTION -->
     <section class="page active" id="page1">
       <div class="emoji">💜</div>
       <h1>Are you my best friend?</h1>
       <p>Think carefully before you answer! 🥹</p>
 
       <div class="button-area" id="buttonArea">
-        <button class="btn" onclick="goToPage(2)">YES 💖</button>
+        <button class="btn" id="yesBtn" type="button"
+                onclick="goToPage(2)">YES 💖</button>
         <button class="btn no-btn" id="noBtn" type="button">NO 🙈</button>
       </div>
 
       <p class="hint">Try clicking NO... hehe! 🤭</p>
     </section>
 
-    <!-- PAGE 2: TEDDY, NO PHOTO -->
+    <!-- PAGE 2: TEDDY HUG -->
     <section class="page" id="page2">
+      <div class="emoji">💜</div>
       <h1>Yayyy! My Bestie! 💕</h1>
       <p>You are my favourite person! 🥹</p>
 
       <div class="teddy-scene">
-        <div class="teddy boy">🧸</div>
-        <div class="teddy girl">🧸🎀</div>
+        <div class="teddy">🧸</div>
+        <div class="teddy">🧸🎀</div>
         <div class="hug-heart">💜</div>
       </div>
 
-      <p class="message">Sending you the biggest teddy hug ever! 🫂</p>
-      <button class="btn" onclick="goToPage(3)">Next Surprise ➜</button>
+      <p>Sending you the biggest teddy hug ever! 🫂</p>
+      <button class="btn" onclick="goToPage(3)">
+        Next Surprise ➜
+      </button>
     </section>
 
-    <!-- PAGE 3: FIVE PHOTOS -->
+    <!-- PAGE 3: FIVE PHOTO MEMORIES -->
     <section class="page" id="page3">
       <h1>Five Little Memories 💜</h1>
-      <p>Open each heart to see our memories!</p>
+      <p>Open every heart to see our memories!</p>
 
       <div class="hearts">
         <button class="heart" onclick="openHeart(0)">💜</button>
@@ -68,12 +73,12 @@
       <p id="heartCount">0 / 5 hearts opened</p>
 
       <button class="btn" id="heartNext"
-        onclick="goToPage(4)" disabled>
+              onclick="goToPage(4)" disabled>
         Next ➜
       </button>
     </section>
 
-    <!-- PAGE 4: CAKE AND BIRTHDAY WISH, NO PHOTO -->
+    <!-- PAGE 4: BIRTHDAY CAKE -->
     <section class="page" id="page4">
       <h1>Make a Wish! 🎂</h1>
       <p>Close your eyes and wish for something special! ✨</p>
@@ -92,14 +97,15 @@
         <div class="confetti">🎉 🎊 💜 🎈 🎉</div>
         <h1>HAPPY BIRTHDAY!</h1>
         <h2>GALDY 💜</h2>
-        <p>May your wishes come true! 🥹</p>
+        <p>May all your wishes come true! 🥹</p>
+
         <button class="btn" onclick="goToPage(5)">
           One Last Surprise 💌
         </button>
       </div>
     </section>
 
-    <!-- PAGE 5: VIDEO, NO PHOTO -->
+    <!-- PAGE 5: FINAL MESSAGE AND VIDEO -->
     <section class="page" id="page5">
       <div class="emoji">💜🧸💜</div>
       <h1>Dear Galdy! 💕</h1>
@@ -107,15 +113,16 @@
       <p class="final-message">
         You deserve all the happiness in the world.
         Keep smiling, keep shining, and never stop being yourself.
-        May this year bring you lots of love, laughter and beautiful memories! ✨
+        May this year bring you lots of love, laughter
+        and beautiful memories! ✨
       </p>
 
       <h2>Happy Birthday, Bestie! 🎂</h2>
 
       <div class="video-container">
         <video controls playsinline preload="metadata">
-          <source src="birthday-video.mp4" type="video/mp4">
-          Your browser does not support this video.
+          <source src="birthday video 2.mp4" type="video/mp4">
+          Your browser does not support video playback.
         </video>
       </div>
 
@@ -131,4 +138,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-```
