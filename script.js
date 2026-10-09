@@ -1,95 +1,135 @@
+```javascript
+function goToPage(pageNumber) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
 
-document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("page" + pageNumber).classList.add("active");
 
-  // PAGE NAVIGATION
-  window.goToPage = function (number) {
-    document.querySelectorAll(".page").forEach(function (page) {
-      page.classList.remove("active");
-    });
-
-    const nextPage = document.getElementById("page" + number);
-
-    if (nextPage) {
-      nextPage.classList.add("active");
-      window.scrollTo(0, 0);
-    }
-  };
-
-  // NO BUTTON MOVEMENT
-  const noBtn = document.getElementById("noBtn");
-  const buttonArea = document.getElementById("buttonArea");
-
-  function moveNoButton() {
-    if (!noBtn || !buttonArea) return;
-
-    const area = buttonArea.getBoundingClientRect();
-
-    noBtn.style.position = "fixed";
-    noBtn.style.left =
-      Math.random() * Math.max(0, window.innerWidth - noBtn.offsetWidth) + "px";
-    noBtn.style.top =
-      Math.random() * Math.max(0, window.innerHeight - noBtn.offsetHeight) + "px";
-    noBtn.style.zIndex = "1000";
+  if (pageNumber === 1) {
+    resetSurprise();
   }
+}
 
-  if (noBtn) {
-    noBtn.addEventListener("mouseenter", moveNoButton);
-    noBtn.addEventListener("click", moveNoButton);
-    noBtn.addEventListener("touchstart", function (event) {
-      event.preventDefault();
-      moveNoButton();
-    }, { passive: false });
+const memories = [
+  {
+    photo: "photo1.jpeg",
+    caption: "One beautiful memory with you! 💜"
+  },
+  {
+    photo: "photo2.jpeg",
+    caption: "Your smile makes every moment special! 🥹"
+  },
+  {
+    photo: "photo3.jpeg",
+    caption: "So many memories, so much happiness! 💕"
+  },
+  {
+    photo: "photo4.jpeg",
+    caption: "Lucky to have you in my life! 🫂"
+  },
+  {
+    photo: "photo5.jpeg",
+    caption: "More memories and laughter to come! ✨"
   }
+];
 
-  // FIVE HEART MESSAGES
-  const heartMessages = [
-    "You make ordinary days feel special! 💜",
-    "Thank you for being a wonderful friend! 🧸",
-    "May all your dreams come true! ✨",
-    "You deserve happiness every single day! 💗",
-    "You will always be a special person! 🫂"
-  ];
+const openedHearts = new Set();
 
-  const openedHearts = new Set();
+function openHeart(index) {
+  const message = document.getElementById("heartMessage");
 
-  window.openHeart = function (index) {
-    const hearts = document.querySelectorAll(".heart");
-    const messageBox = document.getElementById("heartMessage");
+  if (!message) return;
 
-    if (!hearts[index] || !messageBox) return;
+  const memory = memories[index];
 
-    messageBox.textContent = heartMessages[index];
-    hearts[index].classList.add("opened");
-    hearts[index].textContent = "💖";
-    openedHearts.add(index);
+  if (!memory) return;
 
-    document.getElementById("heartCount").textContent =
-      openedHearts.size + " / 5 hearts opened";
+  openedHearts.add(index);
 
-    if (openedHearts.size === 5) {
-      document.getElementById("heartNext").disabled = false;
-      messageBox.textContent =
-        "You opened all five hearts! Your birthday surprise awaits! 🎉";
+  message.innerHTML = `
+    <img
+      class="memory-photo"
+      src="${memory.photo}"
+      alt="Our memory ${index + 1}"
+      onerror="this.alt='Photo not found. Check the filename.'"
+    >
+    <p class="memory-caption">${memory.caption}</p>
+  `;
+
+  document.querySelectorAll(".heart").forEach((heart, i) => {
+    if (i === index) {
+      heart.classList.add("opened");
     }
-  };
+  });
 
-  // BIRTHDAY CANDLE
-  window.blowCandles = function () {
-    const flame = document.getElementById("flame");
-    const startBtn = document.getElementById("startBtn");
-    const reveal = document.getElementById("birthdayReveal");
+  document.getElementById("heartCount").textContent =
+    `${openedHearts.size} / 5 hearts opened`;
 
-    if (!flame || !startBtn || !reveal || startBtn.disabled) return;
+  document.getElementById("heartNext").disabled =
+    openedHearts.size !== 5;
+}
 
-    startBtn.disabled = true;
-    startBtn.textContent = "Make a wish... 💫";
-    flame.classList.add("off");
+function blowCandles() {
+  const flame = document.getElementById("flame");
+  const reveal = document.getElementById("birthdayReveal");
+  const startButton = document.getElementById("startBtn");
 
-    setTimeout(function () {
-      reveal.classList.add("show");
-      startBtn.style.display = "none";
-      reveal.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 900);
-  };
+  flame.style.display = "none";
+  reveal.style.display = "block";
+  startButton.style.display = "none";
+}
 
-});
+function resetSurprise() {
+  openedHearts.clear();
+
+  document.querySelectorAll(".heart").forEach(heart => {
+    heart.classList.remove("opened");
+  });
+
+  document.getElementById("heartMessage").innerHTML =
+    "Choose a heart! 💌";
+
+  document.getElementById("heartCount").textContent =
+    "0 / 5 hearts opened";
+
+  document.getElementById("heartNext").disabled = true;
+
+  document.getElementById("flame").style.display = "block";
+  document.getElementById("birthdayReveal").style.display = "none";
+  document.getElementById("startBtn").style.display = "inline-block";
+
+  const video = document.querySelector("#page5 video");
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+}
+
+// NO button moves away when the pointer approaches it.
+const noBtn = document.getElementById("noBtn");
+const buttonArea = document.getElementById("buttonArea");
+
+function moveNoButton() {
+  if (!noBtn || !buttonArea) return;
+
+  const area = buttonArea.getBoundingClientRect();
+
+  const maxX = Math.max(0, area.width - noBtn.offsetWidth);
+  const maxY = Math.max(0, area.height - noBtn.offsetHeight);
+
+  noBtn.style.position = "absolute";
+  noBtn.style.left = Math.random() * maxX + "px";
+  noBtn.style.top = Math.random() * maxY + "px";
+}
+
+if (noBtn) {
+  noBtn.addEventListener("mouseenter", moveNoButton);
+  noBtn.addEventListener("click", moveNoButton);
+
+  noBtn.addEventListener("touchstart", event => {
+    event.preventDefault();
+    moveNoButton();
+  }, { passive: false });
+}
+```
