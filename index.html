@@ -1,116 +1,26 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Birthday Surprise 💜</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Galdy!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="sky">
-    <span class="cloud cloud1">☁️</span>
-    <span class="cloud cloud2">☁️</span>
-    <span class="star star1">✦</span>
-    <span class="star star2">✧</span>
-    <span class="star star3">✦</span>
-    <span class="star star4">✧</span>
-  </div>
 
-  <main class="container">
+    <div class="container">
+        <h1>Hey Galdy! 💖</h1>
+        <p>I have a little surprise for you! 🎁</p>
+        <h2>Are you ready? 🥰</h2>
 
-    <!-- PAGE 1 -->
-    <section class="page active" id="page1">
-      <div class="emoji">💜</div>
-      <h1>Are you my best friend?</h1>
-      <p>Think carefully before you answer! 🥹</p>
+        <button onclick="showSurprise()">YES 💕</button>
+        <button onclick="sayNo()">NO 🙈</button>
 
-      <div class="button-area" id="buttonArea">
-        <button class="btn" onclick="goToPage(2)">YES 💖</button>
-        <button class="btn no-btn" id="noBtn" type="button">NO 🙈</button>
-      </div>
+        <p id="message"></p>
+    </div>
 
-      <p class="hint">Try clicking NO... hehe! 🤭</p>
-    </section>
-
-    <!-- PAGE 2 -->
-    <section class="page" id="page2">
-      <h1>Yayyy! My Bestie! 💕</h1>
-      <p>You are my favourite person! 🥹</p>
-
-      <div class="teddy-scene">
-        <div class="teddy boy">🧸</div>
-        <div class="teddy girl">🧸🎀</div>
-        <div class="hug-heart">💜</div>
-      </div>
-
-      <p class="message">Sending you the biggest teddy hug ever! 🫂</p>
-      <button class="btn" onclick="goToPage(3)">Next Surprise ➜</button>
-    </section>
-
-    <!-- PAGE 3 -->
-    <section class="page" id="page3">
-      <h1>Five Little Secrets 💜</h1>
-      <p>Click each heart to unlock a special message!</p>
-
-      <div class="hearts">
-        <button class="heart" onclick="openHeart(0)">💜</button>
-        <button class="heart" onclick="openHeart(1)">💜</button>
-        <button class="heart" onclick="openHeart(2)">💜</button>
-        <button class="heart" onclick="openHeart(3)">💜</button>
-        <button class="heart" onclick="openHeart(4)">💜</button>
-      </div>
-
-      <div id="heartMessage" class="heart-message">Choose a heart! 💌</div>
-      <p id="heartCount">0 / 5 hearts opened</p>
-
-      <button class="btn" id="heartNext" onclick="goToPage(4)" disabled>
-        Next ➜
-      </button>
-    </section>
-
-    <!-- PAGE 4 -->
-    <section class="page" id="page4">
-      <h1>Make a Wish! 🎂</h1>
-      <p>Close your eyes and wish for something special! ✨</p>
-
-      <div class="cake-scene">
-        <div class="flame" id="flame">🔥</div>
-        <div class="candle">🕯️</div>
-        <div class="cake">🎂</div>
-      </div>
-
-      <button class="btn" id="startBtn" onclick="blowCandles()">
-        START 🎉
-      </button>
-
-      <div id="birthdayReveal" class="reveal">
-        <div class="confetti">🎉 🎊 💜 🎈 🎉</div>
-        <h1>HAPPY BIRTHDAY!</h1>
-        <h2>GALDY 💜</h2>
-        <p>May your wishes come true! 🥹</p>
-        <button class="btn" onclick="goToPage(5)">One Last Surprise 💌</button>
-      </div>
-    </section>
-
-    <!-- PAGE 5 -->
-    <section class="page" id="page5">
-      <div class="emoji">💜🧸💜</div>
-      <h1>Dear Galdy!</h1>
-
-      <p class="final-message">
-        You deserve all the happiness in the world.
-        Keep smiling, keep shining, and never stop being yourself.
-        May this year bring you lots of love, laughter and beautiful memories! ✨
-      </p>
-
-      <h2>Happy Birthday, Bestie! 🎂</h2>
-      <div class="emoji">🫂💗🎉</div>
-      <button class="btn" onclick="goToPage(1)">Replay Surprise ↻</button>
-    </section>
-
-  </main>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+```
